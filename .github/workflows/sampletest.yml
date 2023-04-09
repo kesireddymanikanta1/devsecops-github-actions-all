@@ -1,0 +1,20 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+      - test
+  workflow_dispatch:
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: 
+      name: development
+      url: https://github.com
+    steps:
+      - name: deploy
+        run: | 
+          echo "FullName : ${{ env.FULLNAME }}"
+          echo "Mani secret : ${{ secrets.MANI }}" 
